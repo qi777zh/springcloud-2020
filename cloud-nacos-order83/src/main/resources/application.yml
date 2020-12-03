@@ -1,0 +1,14 @@
+server:
+  port: 9083 #设置端口为80可以访问时不用输入端口号
+
+spring:
+  application:
+    name: nacos-payment-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置nacos地址
+
+#消费者将要去访问的微服务名称（注册成功进nacos的微服务提供者）
+service-url:
+  nacos-user-service: http://nacos-payment-provider

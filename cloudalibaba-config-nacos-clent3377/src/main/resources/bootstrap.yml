@@ -1,0 +1,17 @@
+server:
+  port: 3377 #设置端口为80可以访问时不用输入端口号
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 #nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        namespace: 2e6bf169-c71c-4bf7-b612-0a1a121555e0 #配置指定命名空间
+# 配置id取名规则
+#  ${spring.application.name)-$(spring.profile.active).$(spring.cloud.nacos.config.file-extension}
+# nacos-config-client-dev.y aml

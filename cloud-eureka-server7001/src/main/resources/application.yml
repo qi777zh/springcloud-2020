@@ -1,0 +1,21 @@
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: eureka7001.com # eureka 服务端的实例名称
+  client:
+  #false表示不向注册中心注册自己。
+    register-with-eureka: false
+  #false表示自己端就是注册中心，我的职责就是能护服务实商，并不需要去检索服务
+    fetch-registry: false
+    service-url:
+      #集群版：设置与eureka server必互的地址查询服务和注册服务都需要依裁这个地址。
+      #defaultZone: http://eureka7002.com:7002/eureka/
+      #单机版：设置与eureka server必互的地址查询服务和注册服务都需要依裁这个地址。
+      defaultZone: http://eureka7001.com:7001/eureka/
+  server:
+    #禁用自我保护机制，保证心跳发送不及时直接被剔除
+    enable-self-preservation: false
+    #使发送心跳时间改为20秒
+    eviction-interval-timer-in-ms: 2000
